@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from constructs import Construct
 from cdktf import App, TerraformStack, TerraformOutput
 from imports.aws import AwsProvider, S3, Cloudfront, CloudfrontDistribution, S3BucketObject, S3BucketWebsite
