@@ -3,6 +3,8 @@ from constructs import Construct
 from cdktf import App, TerraformStack, TerraformOutput
 from imports.aws import AwsProvider, S3Bucket, Cloudfront, CloudfrontDistribution, S3BucketObject, S3BucketWebsite
 
+import mimetypes
+
 class CdkTerraformStaticWebsiteStack(TerraformStack):
     def __init__(self, scope: Construct, ns: str):
         super().__init__(scope, ns)
@@ -21,7 +23,7 @@ class CdkTerraformStaticWebsiteStack(TerraformStack):
         )
         
         # Define local path to a index.html file to upload
-        s3_file_source = "/Users/tsingh/aiml/path/to/website/files/index.html"
+        s3_file_source = "index.html"
         mimetype, _ = mimetypes.guess_type(s3_file_source) # Guess mimetype of the file for S3 upload
         
         # Upload the index.html file to the S3 bucket with public-read ACL for use in a static website
